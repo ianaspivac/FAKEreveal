@@ -1,0 +1,45 @@
+.VideoForm{
+    margin:auto;
+    display: flex;
+    align-items: center;
+    background: #1d1d1d;
+    height:100vh;
+    max-height:900px;
+    width:100vw;
+}
+.form-container{
+    margin:auto;
+    color:rgb(0, 0, 0);
+    width:800px;
+    height:500px;
+    text-align:center;
+    border-radius: 30px;
+    background: #e2e2e2;
+    box-shadow:  20px 20px 60px #191919, 
+             -20px -20px 60px #212121;
+}
+input[type=submit]{
+    background-color: rgb(255, 155, 6);
+    color:white;
+    border:none;
+    margin-left:10px;
+    padding:8px 15px;
+    border-radius:5px;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+    padding:7px 14px;
+    border:1px solid rgb(255, 155, 6);
+    background-color: transparent;
+    color:rgb(255, 155, 6);
+}
+.VideoForm h2,.VideoForm h3{
+    font-size:3em;
+    margin-top:40px;
+    height: 100px;  
+}
+.VideoForm p{
+    margin-top:15px;
+    font-size:15px;
+    font-weight: 700;
+}

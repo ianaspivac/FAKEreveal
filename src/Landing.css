@@ -1,0 +1,34 @@
+.Landing{   
+    background-image: url("venice-mask-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #107c73;
+    color:white;
+    height:100vh;
+    max-height:1200px;   
+}
+.header-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    display: row;
+    height:100vh;
+    max-height:1200px;
+    width:100vw;
+
+    background-color: #050505b7;
+
+}
+
+h1{
+    color: rgb(247, 169, 80); 
+    font-size:8em;
+}
+span{
+    color: rgb(255, 155, 6);   
+}
+p{
+    font-family: 'Work Sans', sans-serif;
+    font-size:3em;
+}
