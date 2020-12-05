@@ -5,11 +5,10 @@ import './VideoForm.css';
 export default class VideoForm extends React.Component {
 
   state = {
-
     deepfake_status: null,
     uploaded: null,
     selectedFile: null,
-    loaded: null
+    loaded: false
   };
 
   onFileChange = event => {
@@ -21,56 +20,43 @@ export default class VideoForm extends React.Component {
 
   // On file upload (click the upload button) 
   onFileUpload = (event) => {
-    event.preventDefault();
+    this.setState({deepfake_status:null,uploaded:false});
 
     // Create an object of formData 
     const formData = new FormData();
 
-    // Update the formData object 
-    formData.append(
-      "myFile",
-      this.state.selectedFile,
-      this.state.selectedFile.name
-    );
+   // Update the formData object 
+   formData.append(
+    "file",
+    this.state.selectedFile,
+  );
 
-    // Details of the uploaded file 
-    console.log(this.state.selectedFile);
+  // Details of the uploaded file 
+  /*console.log(this.state.selectedFile);
 
-    /* 
-    const response = await axios.post(``, formData);
-      axios.get(``)
-      .then(res => {
-        var deepfake_status=false;
-        this.setState({loaded:true,uploaded:true,deepfake_status:deepfake_status});
-      })
-    */
+  const headers = { "Content-Type": "multipart/form-data" }
 
-    var deepfake_status = false;
-    this.setState({ loaded:false,uploaded: true, deepfake_status: deepfake_status });
-
+  const response = axios.post(`http://127.0.0.1:5000/api`, formData, {headers :headers}).then(res => {
+  console.log(res);   
+  this.setState({loaded:true,uploaded:true,deepfake_status:res.data.status});
+  })*/
+  this.setState({loaded:true,uploaded:true,deepfake_status:"ok"});
   };
 
   fileData = () => {
     if (this.state.uploaded) {
       if (this.state.loaded) {
-        if (this.state.deepfake_status) {
-          return (
-            <div>
-              <h3>This video does contain deepfake.</h3>
-            </div>);
-        }
-        else {
+        if (this.state.deepfake_status) {      
           return (<div>
-            <h3>This video doesn't contain deepfake.</h3>
-          </div>);
-        }
-      }
+            <h3>{this.state.deepfake_status}</h3>
+          </div>);    
+      }}
       else{
         return (<div>
           <p>Loading...</p>
         </div>);
       }
-    } else {
+     }else {
       return (
         <div>
           <br />
