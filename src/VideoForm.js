@@ -20,7 +20,7 @@ export default class VideoForm extends React.Component {
 
   // On file upload (click the upload button) 
   onFileUpload = (event) => {
-    this.setState({deepfake_status:null,uploaded:false});
+    this.setState({deepfake_status:null,uploaded:false,loaded:false});
 
     // Create an object of formData 
     const formData = new FormData();
@@ -32,15 +32,14 @@ export default class VideoForm extends React.Component {
   );
 
   // Details of the uploaded file 
-  /*console.log(this.state.selectedFile);
+  console.log(this.state.selectedFile);
 
   const headers = { "Content-Type": "multipart/form-data" }
 
   const response = axios.post(`http://127.0.0.1:5000/api`, formData, {headers :headers}).then(res => {
   console.log(res);   
   this.setState({loaded:true,uploaded:true,deepfake_status:res.data.status});
-  })*/
-  this.setState({loaded:true,uploaded:true,deepfake_status:"ok"});
+  })
   };
 
   fileData = () => {
